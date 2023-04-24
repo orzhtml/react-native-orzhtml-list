@@ -1,0 +1,44 @@
+{
+  "name": "react-native-orzhtml-list",
+  "version": "1.0.0",
+  "description": "FlatList with pull-to-refresh and infinite scrolling for Android and iOS React-Native apps",
+  "main": "index.ts",
+  "scripts": {
+    "test": "flatlist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orzhtml/react-native-orzhtml-list.git"
+  },
+  "keywords": [
+    "flatlist",
+    "listview",
+    "list",
+    "view"
+  ],
+  "author": "orzhtml",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/orzhtml/react-native-orzhtml-list/issues"
+  },
+  "homepage": "https://github.com/orzhtml/react-native-orzhtml-list#readme",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "files": [
+    "index.ts",
+    "src"
+  ]
+}
