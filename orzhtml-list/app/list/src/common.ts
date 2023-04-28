@@ -33,9 +33,7 @@ export interface RefreshingFuncTypes<T> {
     isRefresh?: boolean,
 }
 
-export interface OrzhtmlListProps<T> extends Omit<FlatListProps<T>, 'data'>, RefreshableTypes, RefreshingFuncTypes<T> {
-    onRefresh?: () => void,
-    onLoadMore?: () => void,
+export interface OrzhtmlListProps<T> extends Omit<FlatListProps<T>, 'data' | 'ListFooterComponent'>, RefreshableTypes, RefreshingFuncTypes<T> {
     // Pagination
     pagination?: boolean,
     allLoadedText?: string,
@@ -46,6 +44,13 @@ export interface OrzhtmlListProps<T> extends Omit<FlatListProps<T>, 'data'>, Ref
     spinnerColor?: string,
     waitingSpinnerSize?: 'small' | 'large',
     waitingSpinnerText?: string,
+    ListFooterComponent?: React.ReactElement,
+    PaginationBtnView?: React.ReactElement,
+    PaginationFetchingView?: React.ReactElement,
+    PaginationAllLoadedView?: React.ReactElement,
+    PaginationWaitingView?: React.ReactElement,
+    EmptyView?: React.ReactElement,
+    HeaderView?: React.ReactElement,
 }
 
 export interface OrzhtmlListHandles<T> {
@@ -54,7 +59,7 @@ export interface OrzhtmlListHandles<T> {
     /** 第一次数据加载 */
     addInitialData: (rows: T[]) => void,
     /** 获取已存的所有数据 */
-    getListRows: () => void,
+    getListRows: () => T[],
     /** 手动更新数据 */
     updateDataSource: (rows: T[]) => void,
     scrollToEnd: (params: ScrollToEndTypes) => void,

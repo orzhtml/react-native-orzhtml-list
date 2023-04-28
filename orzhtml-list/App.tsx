@@ -83,6 +83,11 @@ function App(): JSX.Element {
         renderItem={_renderItem}
         setRefresh={_setRefresh}
         setEndReached={_setEndReached}
+        EmptyView={(
+          <View>
+            <Text>空数据{_flatList.current?.getListRows().length}</Text>
+          </View>
+        )}
       />
     </SafeAreaView>
   );

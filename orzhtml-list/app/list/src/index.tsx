@@ -189,11 +189,13 @@ function OrzhtmlListView<T>(props: OrzhtmlListViewProps<T>) {
 
   /** 手动刷新 */
   const refreshListData = () => {
-    props.setRefreshing?.(true)
-    setIsRefreshing(true)
-    onRefreshing(true)
-    setDataSource([])
-    props.onRefresh?.()
+    if (mountedRef.current) {
+      props.setRefreshing?.(true)
+      setIsRefreshing(true)
+      onRefreshing(true)
+      setDataSource([])
+      props.setRefresh?.(handleRefresh, completeDataFetch)
+    }
   }
 
   // Updates the value of the `refreshingRef` with a boolean value
@@ -296,6 +298,9 @@ function OrzhtmlListView<T>(props: OrzhtmlListViewProps<T>) {
     if (pageStatus !== PageStatus.noData) {
       return null
     }
+    if (props.EmptyView) {
+      return props.EmptyView
+    }
     return (
       <View style={styles.emptyView}>
         <Text style={styles.emptyViewTxt}>{props.emptyViewText}</Text>
@@ -305,6 +310,9 @@ function OrzhtmlListView<T>(props: OrzhtmlListViewProps<T>) {
 
   /** 上拉加载完成，没有更多数据 */
   const PaginationAllLoadedView = useCallback(() => {
+    if (props.PaginationAllLoadedView) {
+      return props.PaginationAllLoadedView
+    }
     return (
       <View style={styles.paginationView}>
         <Text style={styles.allLoadedText}>{props.allLoadedText}</Text>
@@ -314,6 +322,9 @@ function OrzhtmlListView<T>(props: OrzhtmlListViewProps<T>) {
 
   /** 上拉加载中 */
   const PaginationWaitingView = useCallback(() => {
+    if (props.PaginationWaitingView) {
+      return props.PaginationWaitingView
+    }
     return (
       <View style={styles.paginationView}>
         <ActivityIndicator color={props.spinnerColor} size={props.waitingSpinnerSize} />
@@ -326,6 +337,9 @@ function OrzhtmlListView<T>(props: OrzhtmlListViewProps<T>) {
 
   /** 上拉等待加载 */
   const PaginationBtnView = useCallback(() => {
+    if (props.PaginationBtnView) {
+      return props.PaginationBtnView
+    }
     return (
       <View style={styles.fetchingView}>
         <Text style={styles.paginationViewText}>{props.paginationBtnText}</Text>

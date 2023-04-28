@@ -1,6 +1,6 @@
 {
   "name": "react-native-orzhtml-list",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "FlatList with pull-to-refresh and infinite scrolling for Android and iOS React-Native apps",
   "main": "index.ts",
   "scripts": {
