@@ -228,6 +228,7 @@ function OrzhtmlListView<T>(props: OrzhtmlListViewProps<T>) {
     addInitialData,
     getListRows,
     updateDataSource,
+    onRefreshing,
     scrollToEnd: (params: ScrollToEndTypes) => {
       scrollToEnd(params)
     },
@@ -239,10 +240,10 @@ function OrzhtmlListView<T>(props: OrzhtmlListViewProps<T>) {
     },
     scrollToOffset: (params: ScrollToOffsetTypes) => {
       scrollToOffset(params)
-    }
+    },
   }), [
     refreshListData, addInitialData, getListRows, updateDataSource,
-    scrollToEnd, scrollToIndex, scrollToItem, scrollToOffset
+    scrollToEnd, scrollToIndex, scrollToItem, scrollToOffset, onRefreshing,
   ])
 
   const _RenderRefreshControl = useCallback(() => {

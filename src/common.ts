@@ -62,6 +62,7 @@ export interface OrzhtmlListHandles<T> {
     getListRows: () => T[],
     /** 手动更新数据 */
     updateDataSource: (rows: T[]) => void,
+    onRefreshing: (r: boolean) => void,
     scrollToEnd: (params: ScrollToEndTypes) => void,
     scrollToIndex: (params: ScrollToIndexTypes) => void,
     scrollToItem: (params: ScrollToItemTypes) => void,
