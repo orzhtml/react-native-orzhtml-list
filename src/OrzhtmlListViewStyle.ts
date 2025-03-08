@@ -1,16 +1,12 @@
-import { Dimensions, StyleSheet } from 'react-native'
-
-const { width } = Dimensions.get('window')
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   fetchingView: {
-    width,
     height: 55,
     justifyContent: 'center',
     alignItems: 'center'
   },
   paginationView: {
-    width,
     height: 55,
     flexDirection: 'row',
     justifyContent: 'center',
